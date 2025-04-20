@@ -37,22 +37,25 @@ async function main() {
         }
     }
 
-//1. Instantiate the car.
+    //1. Instantiate the car.
 
     let myCar = new Car("Honda", "CRV", 2025); 
 
-// 2. Turn engine on.
+    // 2. Turn engine on.
     myCar.start(); 
 
-// 3. Drive for 100 KM. 
+    // 3. Drive for 100 KM. 
     myCar.drive(100); 
 
-// 4. Turn engine off.  5. Turn engine on.  6. Drive for 50KM. 7. Turn engine off. 8. Output the odometer.
-    myCar.stop;
-    myCar.start; 
+    // 4. Turn engine off.  5. Turn engine on.  6. Drive for 50KM. 7. Turn engine off. 8. Output the odometer.
+    myCar.stop();
+    myCar.start(); 
     myCar.drive(50); 
-    myCar.stop;
+    myCar.stop();
     output(`Odometer reading: ${myCar.odometer}`); 
 
+    // JSON string for car object
+    JSONmyCar = JSON.stringify(myCar); 
+    output(JSONmyCar); 
 
 }
