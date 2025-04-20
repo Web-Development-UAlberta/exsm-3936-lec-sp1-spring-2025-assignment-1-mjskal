@@ -1,15 +1,15 @@
 async function main() {
 
-//Two classes for car and engine with their own constructors 
+//Two classes for car and engine with their own constructors.
 
-    //Blueprint for a car
+    //Blueprint for a car.
     class Car {
         constructor(make, model, year){
             this.make = make; 
             this.model = model; 
             this.year = year; 
             this.odometer = 0;
-            this.engine = new Engine(6, false);  //nested object per ULM
+            this.engine = new Engine(6, false); 
         }
         start() {
             this.engine.isRunning = true; 
@@ -19,9 +19,17 @@ async function main() {
             this.engine.isRunning = false; 
         }
 
+        drive(km) {
+            if (this.engine.isRunning) {
+                this.odometer += km;
+            }
+            else {
+                output("Sorry, engine is not running, please start car!"); 
+            }
+        }
     }
     
-    //Blueprint for engine
+    //Blueprint for engine.
     class Engine {
         constructor(cylinderCount, isRunning){
             this.cylinderCount = cylinderCount;
@@ -29,23 +37,22 @@ async function main() {
         }
     }
 
-//1. Instantiate a car
-//Value for odometer property is always 0, value for engine property is a new nested object of engine class with 6 cylinders and engine false
+//1. Instantiate the car.
 
-let myCar = new Car("Honda", "CRV", 2025); 
+    let myCar = new Car("Honda", "CRV", 2025); 
 
-// 2. Turn its engine on/off testing
-myCar.start(); 
-output(`The engine is on: ${myCar.engine.isRunning}`); 
-myCar.stop(); 
-output(`The engine is on: ${myCar.engine.isRunning}`); 
+// 2. Turn engine on.
+    myCar.start(); 
+
+// 3. Drive for 100 KM. 
+    myCar.drive(100); 
+
+// 4. Turn engine off.  5. Turn engine on.  6. Drive for 50KM. 7. Turn engine off. 8. Output the odometer.
+    myCar.stop;
+    myCar.start; 
+    myCar.drive(50); 
+    myCar.stop;
+    output(`Odometer reading: ${myCar.odometer}`); 
 
 
 }
-
-
-
-// 3. Drive for 100 KM. 
-// 4. Turn engine off.  5. Turn engine on.  6. Drive for 50KM. 7. Turn engine off. 
-// 8. Output the odometer.   
-// 9. Output JSON string representing car object to console.
