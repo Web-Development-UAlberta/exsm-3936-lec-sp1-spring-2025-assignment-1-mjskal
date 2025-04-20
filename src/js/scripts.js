@@ -9,8 +9,16 @@ async function main() {
             this.model = model; 
             this.year = year; 
             this.odometer = 0;
-            this.engine = new Engine(6, false);  
+            this.engine = new Engine(6, false);  //nested object per ULM
         }
+        start() {
+            this.engine.isRunning = true; 
+        }
+
+        stop() {
+            this.engine.isRunning = false; 
+        }
+
     }
     
     //Blueprint for engine
@@ -26,18 +34,17 @@ async function main() {
 
 let myCar = new Car("Honda", "CRV", 2025); 
 
-//Test outputs 
+// 2. Turn its engine on/off testing
+myCar.start(); 
+output(`The engine is on: ${myCar.engine.isRunning}`); 
+myCar.stop(); 
+output(`The engine is on: ${myCar.engine.isRunning}`); 
 
-output(`Car make: ${myCar.make}`); 
-output(`Car model: ${myCar.model}`); 
-output(`Car year: ${myCar.year}`); 
-output(`Car odometer: ${myCar.odometer}`); 
-output(`Engine cylinders: ${myCar.engine.cylinderCount}`); 
-output(`Is the car running: ${myCar.engine.isRunning}`); 
 
 }
 
-// 2. Turn its engine on
+
+
 // 3. Drive for 100 KM. 
 // 4. Turn engine off.  5. Turn engine on.  6. Drive for 50KM. 7. Turn engine off. 
 // 8. Output the odometer.   
